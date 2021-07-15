@@ -1,5 +1,5 @@
 # Proposal Title
-Implementation for proposal 12, transferring 471k USDC to the Mycelium Multisig (0xa6a006C12338cdcDbC882c6ab97E4F9F82340651)
+Implementation for Proposal 12, transferring 471,000 USDC to the Mycelium multisig (`0xa6a006C12338cdcDbC882c6ab97E4F9F82340651`)
 
 ## Implementation
 | field | value |
@@ -9,7 +9,7 @@ Implementation for proposal 12, transferring 471k USDC to the Mycelium Multisig 
 
 ## Generation
 Generated using the following function call(s) and the DAOCheck tool
-```
+```json
 "calls": [
         {
             "target": "USDC",
