@@ -1,4 +1,4 @@
-# Proposal Title
+# Proposal 12 - Mycelium Updated Offer
 Implementation for Proposal 12, transferring 471,000 USDC to the Mycelium multisig (`0xa6a006C12338cdcDbC882c6ab97E4F9F82340651`)
 
 ## Implementation
