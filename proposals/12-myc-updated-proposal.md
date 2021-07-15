@@ -7,7 +7,7 @@ proposalData: [0x91ddeef8000000000000000000000000a6a006c12338cdcdbc882c6ab97e4f9
 
 ## Generation
 Generated using the following function call(s) and the DAOCheck tool
-```
+```json
 "calls": [
         {
             "target": "USDC",
