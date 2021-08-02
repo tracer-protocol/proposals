@@ -9,7 +9,7 @@ Insert a description of the proposal
 ## Extra Details Needed for implementation
 Add any extra details that may be needed for the implementation, such as
 - contract addresses
-- relevant discourse discussions
+- relevant Discourse discussions
 - libraries
 - external repos
 
