@@ -8,7 +8,7 @@ Before opening an issue on this repo, please adhere to the proper Tracer proposa
 - Open a proposal on Discourse
 - Push the proposal to Snapshot for offchain voting
 
-If you have not already gone through these steps, then please do not open an issue on this repo. Any issues that have not met the above two criteria will be deleted.
+If you have not already gone through these steps, then please do not open an issue on this repo. Any issues that have not met the above two criteria will be closed.
 
 ## Creating an Issue
 When creating an issue in this repo, use the [issue template](./issue_template.md)
