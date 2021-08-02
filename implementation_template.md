@@ -5,7 +5,7 @@ Insert a description of the proposal. This can be copied from the issue.
 Link to the issue this proposal is implementing here
 
 ## Implementation Discussion
-Add any extra commentary on the implementation itself. This will be used by reviewers to understand the full scope of the implementation and ensure that the implementation is matching the proposal, and that it is safe.
+Add any extra commentary on the implementation itself here. This will be used by reviewers to understand the full scope of the implementation and to ensure that the implementation is both safe and matches the proposal.
 
 For example, if this implementation is relying on a contract you have deployed, provide some background to that contract. 
 
