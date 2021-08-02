@@ -18,7 +18,7 @@ In order to produce a proposal, you must generate a list of targets (Ethereum ad
 
 Each data will be executed against its target, and most commonly each piece of data is simply calling a specific function with certain parameters.
 
-You may generate the bytecode required for the proposal yourself (Mycelium recommends using hardhat or Truffle for this).
+You may generate the bytecode required for the proposal yourself (Mycelium recommends using Hardhat or Truffle for this).
 
 In order for a proposal to be considered complete, you must have produced
 - a list of targets
