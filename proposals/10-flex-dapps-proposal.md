@@ -155,7 +155,7 @@ let payloads = [
     ]),
     tcrContract.encodeFunctionData("transfer", [
         vestingAddress,
-        ethers.BigNumber.from(tcrAmount)
+        ethers.BigNumber.from(tcrAmount).mul(ethers.BigNumber.from("1000000000000000000"))
     ]),
     vestingContract.encodeFunctionData("vest", [
         flexAddress,
