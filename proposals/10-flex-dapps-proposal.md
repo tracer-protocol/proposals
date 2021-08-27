@@ -1,4 +1,4 @@
-# 14 - Advisor and Financial Engineer: Yamashita
+# 10 -  Flex Dapp$
 Pay 30,000 USDC to Flex Dapps and cause 2,000,000 TCR to vest linearly over 3 years with no cliff to Flex Dapps.
 
 ## Issue Link
