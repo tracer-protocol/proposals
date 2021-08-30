@@ -112,3 +112,92 @@ The following JSON file was used as part of the DAOChecker tool to generate the 
 }
 ```
 
+The following code was used along with the vestung repo to double check the `multiVest` portion of the payload.
+
+```
+  const Vesting = await hre.ethers.getContractFactory("Vesting");
+  const vesting = await Vesting.deploy();
+
+  const accounts = [
+    "0x0d298f3220eAdf02D10C9Feff537B50787725418",
+    "0xf8ccf1f5381956f4152B5570627C49D42eABB60e",
+    "0x8938892193FddAB15F113459E91e1c4Ab1f052A4",
+    "0x2ce5f9f52C1eec9a1183f91139C59b485Ff39dAd",
+    "0xb298F84eB4A1b5180a90006c8573422CD66321fc",
+    "0xC572550343B4bC82734Cfb6bA28c86b350513F18",
+    "0x09a73Ca620c4D2e92009a68cB681741745191774",
+    "0xc1bbc31e3b4300f3dc0f865ee10c38fc0e0b8061",
+    "0x2f529d5E02A531141516F2B62C1EF48AF8048913",
+    "0xcb4f5a5f5ebec3de8f697cf38b7fa0f1878110f4",
+    "0x2D81713c58452c92C19b2917e1C770eEcF53Fe41",
+    "0xf6b6f07862a02c85628b3a9688beae07fea9c863",
+    "0xc304e5d59707DA4F821e136B965DDeF534FB47B1",
+    "0x51164aBE5Fcd2249CEB75aC54afE0AFD8d36ad4e",
+    "0x2Cf0DfCc4149f8CaA8F5D6614CCB339587f8F20f",
+    "0xb0353d0A6690B0De6C50F00A1dd4D3B227fF596b",
+    "0xF5Fb27b912D987B5b6e02A1B1BE0C1F0740E2c6f",
+    "0xd046135Ba00B0315eD4c3135206C87a7F4EB57D9",
+    "0x6b2633830704d9fd18daC155E7620673d8F27f1b",
+    "0xc3598d91844b061195136600ad243b077cc164e2",
+    "0xC2FaAf1233e36B879Cc411A38e23F7d41cc3D71A",
+    "0x20C39b973ce1987865bc0D8373e45fc1a0f085C0",
+    "0xE50E6Ad4bFfD91151e4441B4ACd81C8098f355ae",
+    "0xb3C4C88A5A8760f0C1E9B1C618B58A21cdB336eF",
+    "0xd81f3d609d4317f6de1f3d86862eb10b51645e23",
+    "0x69B5F5e85CE1B82b383034a1c2629c143B8E29a9",
+    "0x3b1E215FE1138aA9034b5E6De39892e45ac05176",
+    "0xf0cf9631ee58cc8f3eec5bd8a78797c1447bb476",
+    "0xd16295DEA1115C9df62FC35017bB359fb1E6d639",
+    "0x3DF1b295d394B6c77415e9659Cc1a7DBCcA76Be7",
+    "0xb747f20b7B729d385a844ed200e8Ce914cEFc9d8",
+    "0x673A7f6C72b26aE0521c0F44C321650890858EC5"
+]
+const amounts = [
+    ethers.utils.parseEther("22222222"),
+    ethers.utils.parseEther("16666667"),
+    ethers.utils.parseEther("6666667"),
+    ethers.utils.parseEther("6666667"),
+    ethers.utils.parseEther("5000000"),
+    ethers.utils.parseEther("5000000"),
+    ethers.utils.parseEther("3333333"),
+    ethers.utils.parseEther("1777778"),
+    ethers.utils.parseEther("11111111"),
+    ethers.utils.parseEther("2222222"),
+    ethers.utils.parseEther("4444444"),
+    ethers.utils.parseEther("2222222"),
+    ethers.utils.parseEther("1666667"),
+    ethers.utils.parseEther("1296667"),
+    ethers.utils.parseEther("1296667"),
+    ethers.utils.parseEther("1111111"),
+    ethers.utils.parseEther("1111111"),
+    ethers.utils.parseEther("1111111"),
+    ethers.utils.parseEther("666667"),
+    ethers.utils.parseEther("555556"),
+    ethers.utils.parseEther("555556"),
+    ethers.utils.parseEther("444444"),
+    ethers.utils.parseEther("444444"),
+    ethers.utils.parseEther("333333"),
+    ethers.utils.parseEther("333333"),
+    ethers.utils.parseEther("333333"),
+    ethers.utils.parseEther("333333"),
+    ethers.utils.parseEther("222222"),
+    ethers.utils.parseEther("222222"),
+    ethers.utils.parseEther("222222"),
+    ethers.utils.parseEther("222222"),
+    ethers.utils.parseEther("184444")
+]
+
+  // encode a function call to vesting
+  const calldata = vesting.interface.encodeFunctionData("multiVest", [
+    accounts, // accounts
+    amounts, // amount
+    "0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050", // asset,
+    true, // isFixed,
+    0, // cliffWeeks,
+    112,  // vestingWeeks,
+    1624711802 //startTime
+  ])
+
+  console.log(calldata)
+  ```
+
