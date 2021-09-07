@@ -5,10 +5,10 @@ This repo contains all implementation details for specific proposals. This ensur
 Before opening an issue on this repo, please adhere to the proper Tracer proposal workflow
 - Open a EOI for the proposal on Discourse
 - Open a temperature check on Discourse in the proposal lobby
-- Open a proposal on Discourse
+- Open a formal proposal on Discourse - this requires admin approval.
 - Push the proposal to Snapshot for offchain voting
 
-If you have not already gone through these steps, then please do not open an issue on this repo. Any issues that have not met the above two criteria will be closed.
+If you have not already gone through these steps, then please do not open an issue on this repo. Any issues that have not met the above two criteria will be deleted.
 
 ## Creating an Issue
 When creating an issue in this repo, use the [issue template](./issue_template.md)
@@ -18,7 +18,7 @@ In order to produce a proposal, you must generate a list of targets (Ethereum ad
 
 Each data will be executed against its target, and most commonly each piece of data is simply calling a specific function with certain parameters.
 
-You may generate the bytecode required for the proposal yourself (Mycelium recommends using Hardhat or Truffle for this).
+You may generate the bytecode required for the proposal yourself (Mycelium recommends using hardhat or Truffle for this).
 
 In order for a proposal to be considered complete, you must have produced
 - a list of targets
