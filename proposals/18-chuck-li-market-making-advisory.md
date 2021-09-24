@@ -24,9 +24,9 @@ If "End date" is `Sep 10, 2021, 1:30 PM` (when my timezone is UTC+1), then it's 
 I'll be using UTC time, as EVM's `block.timestamp` is seconds since unix epoch (https://docs.soliditylang.org/en/latest/units-and-global-variables.html#block-and-transaction-properties), and unix epoch is in UTC.
 
 ## Implementation
-Targets: [0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050]
+Targets: [0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050, 0x707b6be09028e78d2a667db7596b2803c112f9b2]
 
-Data: [0x0d5358830000000000000000000000007c1b4b31fd641e1ea73e895b3656d93a659f0d0d000000000000000000000000000000000000000000027b46536c66c8e30000000000000000000000000000009c4a4204b79dd291d6b6571c5be8bbcd0622f05000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006600000000000000000000000000000000000000000000000000000000613b4fc8]
+Data: [0xa9059cbb000000000000000000000000707b6be09028e78d2a667db7596b2803c112f9b2000000000000000000000000000000000000000000027b46536c66c8e3000000, 0x0d5358830000000000000000000000007c1b4b31fd641e1ea73e895b3656d93a659f0d0d000000000000000000000000000000000000000000027b46536c66c8e30000000000000000000000000000009c4a4204b79dd291d6b6571c5be8bbcd0622f05000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006600000000000000000000000000000000000000000000000000000000613b4fc8]
 
 ## Generation Code
 The following code was used to get the value of `startTime` (and to double-check DAOCheck tool's `Data`). It requires `web3`.
@@ -46,8 +46,9 @@ const toDecimalsExpanded = (amount, decimals) => {
     return noOverflowRealAmount;
 }
 
-const account = "0x7c1b4b31fd641E1Ea73E895b3656D93a659f0D0D"; // proposal account
-const asset = "0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050"; // tcr address
+const tcr = "0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050"; // tcr address
+const vesting = "0x707b6be09028e78d2a667db7596b2803c112f9b2"; // vesting contract address
+const chuckLi = "0x7c1b4b31fd641E1Ea73E895b3656D93a659f0D0D"; // chuck li's address
 
 const pAmount = 3_000_000; // proposal amount
 const amount = toDecimalsExpanded(pAmount, 18); // tcr has 18 decimals
@@ -59,23 +60,36 @@ const amount = toDecimalsExpanded(pAmount, 18); // tcr has 18 decimals
 const snapshotEndTime = new Date(2021, 8, 10, 13, 30); // september's monthIndex = 8
 const startTime = toUnixEpoch(snapshotEndTime);
 
-const proposal18 = web3.eth.abi.encodeFunctionCall({
+const call1Target = tcr;
+const call1Data = web3.eth.abi.encodeFunctionCall({
+    type: 'function',
+    name: 'transfer',
+    inputs: [
+        { type: 'address', name: 'recipient' }, // vesting
+        { type: 'uint256', name: 'amount' }, // amount
+    ]
+}, [vesting, amount]);
+
+const call2Target = vesting;
+const call2Data = web3.eth.abi.encodeFunctionCall({
     type: 'function',
     name: 'vest',
     inputs: [
-        { type: 'address', name: 'account' },
-        { type: 'uint256', name: 'amount' },
-        { type: 'address', name: 'asset' },
+        { type: 'address', name: 'account' }, // chuckLi
+        { type: 'uint256', name: 'amount' }, // amount
+        { type: 'address', name: 'asset' }, // tcr
         { type: 'bool', name: 'isFixed' }, // false
         { type: 'uint256', name: 'cliffWeeks' }, // 0
         { type: 'uint256', name: 'vestingWeeks' }, // 102
-        { type: 'uint256', name: 'startTime' }
+        { type: 'uint256', name: 'startTime' } // startTime
     ]
-}, [account, amount, asset, false, 0, 102, startTime]);
+}, [chuckLi, amount, tcr, false, 0, 102, startTime]);
 
 console.log("Snapshot UTC End Time:", snapshotEndTime) // should be at 12:30 PM
 console.log("START TIME:", startTime) // will use in DAOCheck tool as "startTime"
-console.log("DATA:", proposal18);
+
+console.log(`targets: ${[call1Target, call2Target]}`);
+console.log(`proposalData: ${[call1Data, call2Data]}`);
 ```
 
 Generated using the following function call(s) and the DAOCheck tool
@@ -85,6 +99,14 @@ Generated using the following function call(s) and the DAOCheck tool
     "calls": [
         {
             "target": "TCR",
+            "name": "transfer",
+            "parameters": [
+                { "type": "address", "name": "recipient", "value": "0x707b6be09028e78d2a667db7596b2803c112f9b2" },
+                { "type": "uint256", "name": "amount", "value": "3000000000000000000000000" }
+            ]
+        },
+        {
+            "target": "0x707b6be09028e78d2a667db7596b2803c112f9b2",
             "name": "vest",
             "parameters": [
                 { "type": "address", "name": "account", "value": "0x7c1b4b31fd641E1Ea73E895b3656D93a659f0D0D" },
