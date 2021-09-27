@@ -68,7 +68,7 @@ const getProposal16 = (fundManagement) => {
 }
 
 const fundManagement = "0x460896bb4Ec40d0D7a75a388e1aef3CfaCFEB8ea" // fund management contract address (dummy)
-getProposal16(fundManagement, growthFund);
+getProposal16(fundManagement);
 ```
 
 Generated using the following function call(s) and the DAOCheck tool
