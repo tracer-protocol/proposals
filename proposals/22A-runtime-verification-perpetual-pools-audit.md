@@ -18,6 +18,7 @@ Data: [0xa9059cbb00000000000000000000000024f8c382bc3f8abcb47faecec2267ea401b0953
 ```javascript
 const Web3 = require("web3");
 const web3 = new Web3();
+
 const toDecimalsExpanded = (amount, decimals) => {
     const realAmount = amount * 10 ** decimals; // apply decimals
     const noOverflowRealAmount = realAmount.toLocaleString('fullwide', {useGrouping:false}); // return str (to prevent overflow) & remove scientific notation
@@ -27,6 +28,7 @@ const toDecimalsExpanded = (amount, decimals) => {
 const usdc = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"; // usdc address
 const pAmount = 105_000; // proposal amount
 const amount = toDecimalsExpanded(pAmount, 6); // usdc has 6 decimals
+
 const getImplementation = runtimeVerfication => {
     const callTarget = usdc;
     const callData = web3.eth.abi.encodeFunctionCall({
