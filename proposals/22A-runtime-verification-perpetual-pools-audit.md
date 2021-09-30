@@ -37,6 +37,7 @@ const getImplementation = runtimeVerfication => {
             { type: 'uint256', name: 'amount' }, // amount
         ]
     }, [runtimeVerfication, amount]);
+    
     console.log(`targets: ${[callTarget]}`);
     console.log(`proposalData: ${[callData]}`);
 }
