@@ -23,6 +23,7 @@ const toDecimalsExpanded = (amount, decimals) => {
     const noOverflowRealAmount = realAmount.toLocaleString('fullwide', {useGrouping:false}); // return str (to prevent overflow) & remove scientific notation
     return noOverflowRealAmount;
 }
+
 const usdc = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"; // usdc address
 const pAmount = 105_000; // proposal amount
 const amount = toDecimalsExpanded(pAmount, 6); // usdc has 6 decimals
@@ -39,6 +40,7 @@ const getImplementation = runtimeVerfication => {
     console.log(`targets: ${[callTarget]}`);
     console.log(`proposalData: ${[callData]}`);
 }
+
 const runtimeVerfication = "0x24f8c382bc3F8Abcb47FAECec2267eA401b09531" // runtime verification's address (dummy)
 getImplementation(runtimeVerfication);
 ```
