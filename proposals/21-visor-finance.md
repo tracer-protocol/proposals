@@ -27,7 +27,7 @@ DAOCheck JSON file used to generate payload
                 {
                     "name": "recipient",
                     "type": "address",
-                    "value": "0x001708c89f19d2d4f40b0ad1726f38e9f4f4c0f8"
+                    "value": "0x59D01Cc35d72d1c20Bda86A8130D7e0eFa4844d9"
                 },
                 {
                     "name": "amount",
@@ -43,7 +43,7 @@ DAOCheck JSON file used to generate payload
                 {
                     "name": "recipient",
                     "type": "address",
-                    "value": "0x001708c89f19d2d4f40b0ad1726f38e9f4f4c0f8"
+                    "value": "0x59D01Cc35d72d1c20Bda86A8130D7e0eFa4844d9"
                 },
                 {
                     "name": "amount",
