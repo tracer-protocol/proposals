@@ -5,7 +5,7 @@ Implementation for the TCR Liquidity proposal with Visor Finance
 
 
 ## Implementation Discussion
-The implementation will transfer $500,000 USD worth of TCR and USDC to a multisig owned by Visor Finance (0x59D01Cc35d72d1c20Bda86A8130D7e0eFa4844d9). They are then conducting the setup of the vault and will return LP tokens to the DAO.
+The implementation will transfer $500,000 USD worth of TCR and USDC to a multisig owned by Visor Finance (`0x59D01Cc35d72d1c20Bda86A8130D7e0eFa4844d9`). They are then conducting the setup of the vault and will return LP tokens to the DAO.
 
 TCR will be valued at $0.34 USD for the sake of this proposal, meaning 1470589 TCR will be transfered.
 
