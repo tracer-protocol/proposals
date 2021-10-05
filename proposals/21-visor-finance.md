@@ -16,7 +16,7 @@ Data: [0xa9059cbb00000000000000000000000059d01cc35d72d1c20bda86a8130d7e0efa4844d
 ## Generation Code
 DAOCheck JSON file used to generate payload
 
-```
+```json
 {
     "name": "Visor Finance Transfer",
     "calls": [
