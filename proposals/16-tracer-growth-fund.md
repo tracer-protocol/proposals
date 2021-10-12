@@ -12,15 +12,12 @@ https://github.com/tracer-protocol/proposals/issues/18
 ### Notes:
 
 - Growth Fund Manager's multisig address: 0x1C315Ae20c758d8Dc9B56415566c82F9085478a8
-- `FundManagement` contract code: https://github.com/tracer-protocol/vesting/blob/fundmanage/contracts/FundManagement.sol
-- I'll create a function capable of implementing this proposal with any address for the `FundManagement` contract (because it is currently unknown).
+- `FundManagement` contract: https://etherscan.io/address/0x83181d41b3203651216065f5f5601295e8e45da4#code
 
 ## Implementation
-Targets: [0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050, 0x460896bb4Ec40d0D7a75a388e1aef3CfaCFEB8ea]
+Targets: [0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050, 0x83181d41b3203651216065F5F5601295E8e45DA4]
 
-Data: [0xa9059cbb000000000000000000000000460896bb4ec40d0d7a75a388e1aef3cfacfeb8ea000000000000000000000000000000000000000000003b4ad496106b7f000000, 0x3a4a2a8f0000000000000000000000001c315ae20c758d8dc9b56415566c82f9085478a8000000000000000000000000000000000000000000003b4ad496106b7f0000000000000000000000000000009c4a4204b79dd291d6b6571c5be8bbcd0622f050]
-
-### GENERATED USING DUMMY DATA! SHOULD BE UPDATED ONCE `FundManagement` CONTRACT ADDRESS IS KNOWN!
+Data: [0xa9059cbb00000000000000000000000083181d41b3203651216065f5f5601295e8e45da4000000000000000000000000000000000000000000003b4ad496106b7f000000, 0x3a4a2a8f0000000000000000000000001c315ae20c758d8dc9b56415566c82f9085478a8000000000000000000000000000000000000000000003b4ad496106b7f0000000000000000000000000000009c4a4204b79dd291d6b6571c5be8bbcd0622f050]
 
 ## Generation Code
 ```javascript
@@ -34,11 +31,12 @@ const toDecimalsExpanded = (amount, decimals) => {
 }
 
 const growthFund = "0x1C315Ae20c758d8Dc9B56415566c82F9085478a8" // growth fund's multisig address
+const fundManagement = "0x83181d41b3203651216065F5F5601295E8e45DA4" // fund management contract address
 const tcr = "0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050"; // tcr address
 const pAmount = 280_000; // proposal amount
 const amount = toDecimalsExpanded(pAmount, 18); // tcr has 18 decimals
 
-const getProposal16 = (fundManagement) => {
+const getProposal16 = () => {
     
     // Transfer 280,000 TCR to Fund Management Contract
     const call1Target = tcr;
@@ -67,8 +65,7 @@ const getProposal16 = (fundManagement) => {
     console.log(`proposalData: ${[call1Data, call2Data]}`);
 }
 
-const fundManagement = "0x460896bb4Ec40d0D7a75a388e1aef3CfaCFEB8ea" // fund management contract address (dummy)
-getProposal16(fundManagement);
+getProposal16();
 ```
 
 Generated using the following function call(s) and the DAOCheck tool
@@ -80,12 +77,12 @@ Generated using the following function call(s) and the DAOCheck tool
             "target": "TCR",
             "name": "transfer",
             "parameters": [
-                { "type": "address", "name": "recipient", "value": "0x460896bb4Ec40d0D7a75a388e1aef3CfaCFEB8ea" },
+                { "type": "address", "name": "recipient", "value": "0x83181d41b3203651216065F5F5601295E8e45DA4" },
                 { "type": "uint256", "name": "amount", "value": "280000000000000000000000" }
             ]
         },
         {
-            "target": "0x460896bb4Ec40d0D7a75a388e1aef3CfaCFEB8ea",
+            "target": "0x83181d41b3203651216065F5F5601295E8e45DA4",
             "name": "createFund",
             "parameters": [
                 { "type": "address", "name": "account", "value": "0x1C315Ae20c758d8Dc9B56415566c82F9085478a8" },
