@@ -1,13 +1,13 @@
 # Proposal 16 - Tracer Growth Fund
-Create fund of 280,000 TCR for Growth Fund Managers multisig address via the `FundManagement` contract.
+Create fund of 280,000,000 TCR for Growth Fund Managers multisig address via the `FundManagement` contract.
 
 ## Issue Link
 https://github.com/tracer-protocol/proposals/issues/18
 
 ## Implementation Discussion
 ### Steps:
-1. `transfer()` 280,000 TCR to the `FundManagement` contract
-2. `createFund()` with 280,000 TCR for the growth fund manager's multisig address
+1. `transfer()` 280,000,000 TCR to the `FundManagement` contract
+2. `createFund()` with 280,000,000 TCR for the growth fund manager's multisig address
 
 ### Notes:
 
@@ -17,7 +17,7 @@ https://github.com/tracer-protocol/proposals/issues/18
 ## Implementation
 Targets: [0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050, 0x83181d41b3203651216065F5F5601295E8e45DA4]
 
-Data: [0xa9059cbb00000000000000000000000083181d41b3203651216065f5f5601295e8e45da4000000000000000000000000000000000000000000003b4ad496106b7f000000, 0x3a4a2a8f0000000000000000000000001c315ae20c758d8dc9b56415566c82f9085478a8000000000000000000000000000000000000000000003b4ad496106b7f0000000000000000000000000000009c4a4204b79dd291d6b6571c5be8bbcd0622f050]
+Data: [0xa9059cbb00000000000000000000000083181d41b3203651216065f5f5601295e8e45da4000000000000000000000000000000000000000000e79c4e6a3023e818000000, 0x3a4a2a8f0000000000000000000000001c315ae20c758d8dc9b56415566c82f9085478a8000000000000000000000000000000000000000000e79c4e6a3023e8180000000000000000000000000000009c4a4204b79dd291d6b6571c5be8bbcd0622f050]
 
 ## Generation Code
 ```javascript
@@ -33,7 +33,7 @@ const toDecimalsExpanded = (amount, decimals) => {
 const growthFund = "0x1C315Ae20c758d8Dc9B56415566c82F9085478a8" // growth fund's multisig address
 const fundManagement = "0x83181d41b3203651216065F5F5601295E8e45DA4" // fund management contract address
 const tcr = "0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050"; // tcr address
-const pAmount = 280_000; // proposal amount
+const pAmount = 280_000_000; // proposal amount
 const amount = toDecimalsExpanded(pAmount, 18); // tcr has 18 decimals
 
 const getProposal16 = () => {
@@ -78,7 +78,7 @@ Generated using the following function call(s) and the DAOCheck tool
             "name": "transfer",
             "parameters": [
                 { "type": "address", "name": "recipient", "value": "0x83181d41b3203651216065F5F5601295E8e45DA4" },
-                { "type": "uint256", "name": "amount", "value": "280000000000000000000000" }
+                { "type": "uint256", "name": "amount", "value": "280000000000000000000000000" }
             ]
         },
         {
@@ -86,7 +86,7 @@ Generated using the following function call(s) and the DAOCheck tool
             "name": "createFund",
             "parameters": [
                 { "type": "address", "name": "account", "value": "0x1C315Ae20c758d8Dc9B56415566c82F9085478a8" },
-                { "type": "uint256", "name": "amount", "value": "280000000000000000000000" },
+                { "type": "uint256", "name": "amount", "value": "280000000000000000000000000" },
                 { "type": "address", "name": "asset", "value": "0x9C4A4204B79dd291D6b6571C5BE8BbcD0622F050" }
             ]
         }
