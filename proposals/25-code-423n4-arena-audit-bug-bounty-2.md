@@ -38,8 +38,8 @@ const call1Data = web3.eth.abi.encodeFunctionCall({
     ]
 }, [mycelium, amount]);
 
-console.log(`targets: [${call1Target}]`);
-console.log(`proposalData: [${call1Data}]`);
+console.log(`targets: ${call1Target}`);
+console.log(`proposalData: ${call1Data}`);
 ```
 
 Generated using the following function call(s) and the DAOCheck tool
