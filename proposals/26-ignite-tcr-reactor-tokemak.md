@@ -1,5 +1,5 @@
 # Proposal 26 - Ignite TCR Reactor in Tokemak
-Send 1.5 million TCR to Tokemak.
+Send $1.5 million USD worth of TCR (4268980 TCR) to Tokemak.
 
 ## Issue Link
 https://github.com/tracer-protocol/proposals/issues/28
