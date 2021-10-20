@@ -1,5 +1,5 @@
 # Proposal 25 - Code 423n4 (Arena) Audit - Bug Bounty #2
-1. Send 30k USDC Code 423n4
+1. Send 30k USDC to Code 423n4
 2. Send 20k USDC (in TCR) to Code 423n4
 3. Send 6k USDC to Mycelium
 4. Send 8k USDC (in TCR) to Mycelium
