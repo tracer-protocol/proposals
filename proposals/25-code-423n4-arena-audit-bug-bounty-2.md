@@ -15,7 +15,7 @@ https://github.com/tracer-protocol/proposals/issues/24
 ## Implementation
 Targets: [0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x9c4a4204b79dd291d6b6571c5be8bbcd0622f050,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x9c4a4204b79dd291d6b6571c5be8bbcd0622f050]
 
-Data: [0xa9059cbb000000000000000000000000c2bc2f890067c511215f9463a064221577a53e1000000000000000000000000000000000000000000000000000000006fc23ac00,0xa9059cbb000000000000000000000000c2bc2f890067c511215f9463a064221577a53e1000000000000000000000000000000000000000000000016462cc289b86080000,0xa9059cbb000000000000000000000000a6a006c12338cdcdbc882c6ab97e4f9f823406510000000000000000000000000000000000000000000000000000000165a0bc00,0xa9059cbb000000000000000000000000a6a006c12338cdcdbc882c6ab97e4f9f8234065100000000000000000000000000000000000000000000008e8deb437168d00000]
+Data: [0xa9059cbb000000000000000000000000c2bc2f890067c511215f9463a064221577a53e1000000000000000000000000000000000000000000000000000000006fc23ac00,0xa9059cbb000000000000000000000000c2bc2f890067c511215f9463a064221577a53e10000000000000000000000000000000000000000000000a156e60abb99e2c0000,0xa9059cbb000000000000000000000000a6a006c12338cdcdbc882c6ab97e4f9f823406510000000000000000000000000000000000000000000000000000000165a0bc00,0xa9059cbb000000000000000000000000a6a006c12338cdcdbc882c6ab97e4f9f82340651000000000000000000000000000000000000000000000408981a275ee8a00000]
 
 ## Generation Code
 ```javascript
@@ -24,7 +24,7 @@ const web3 = new Web3();
 
 const toDecimalsExpanded = (amount, decimals) => {
     const realAmount = amount * 10 ** decimals; // apply decimals
-    const noOverflowRealAmount = realAmount.toLocaleString('fullwide', {useGrouping:false}); // return str (to prevent overflow) & remove scientific notation
+    const noOverflowRealAmount = realAmount.toLocaleString('fullwide', {useGrouping:false}); // remove scientific notation & return str (to prevent overflow)
     return noOverflowRealAmount;
 }
 
@@ -34,7 +34,7 @@ const mycelium = "0xa6a006c12338cdcdbc882c6ab97e4f9f82340651";
 const usdc = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48";
 const tcr = "0x9c4a4204b79dd291d6b6571c5be8bbcd0622f050";
 
-const tcrUsdcPrice = 0.328708; // from CoinGecko
+const tcrUsdcPrice = 0.42; // from CoinGecko
 
 // Send 30k USDC to Code 423n4
 const call1Target = usdc;
@@ -49,7 +49,7 @@ const call1Data = web3.eth.abi.encodeFunctionCall({
 
 // Send 20k USDC (in TCR) to Code 423n4
 const call2Target = tcr;
-const call2Amount = 20_000 * tcrUsdcPrice; // 6574.16 TCR
+const call2Amount = Math.round(20_000 / tcrUsdcPrice) // 47619 TCR
 const call2Data = web3.eth.abi.encodeFunctionCall({
     type: 'function',
     name: 'transfer',
@@ -72,7 +72,7 @@ const call3Data = web3.eth.abi.encodeFunctionCall({
 
 // Send 8k USDC (in TCR) to Mycelium
 const call4Target = tcr;
-const call4Amount = 8_000 * tcrUsdcPrice; // 2629.664 TCR
+const call4Amount = Math.round(8_000 / tcrUsdcPrice); // 19048 TCR
 const call4Data = web3.eth.abi.encodeFunctionCall({
     type: 'function',
     name: 'transfer',
@@ -104,7 +104,7 @@ Generated using the following function call(s) and the DAOCheck tool
             "name": "transfer",
             "parameters": [
                 { "type": "address", "name": "recipient", "value": "0xC2bc2F890067C511215f9463a064221577a53E10" },
-                { "type": "uint256", "name": "amount", "value": "6574160000000000000000" }
+                { "type": "uint256", "name": "amount", "value": "47619000000000000000000" }
             ]
         },
         {
@@ -120,7 +120,7 @@ Generated using the following function call(s) and the DAOCheck tool
             "name": "transfer",
             "parameters": [
                 { "type": "address", "name": "recipient", "value": "0xa6a006c12338cdcdbc882c6ab97e4f9f82340651" },
-                { "type": "uint256", "name": "amount", "value": "2629664000000000000000" }
+                { "type": "uint256", "name": "amount", "value": "19048000000000000000000" }
             ]
         }
     ]
