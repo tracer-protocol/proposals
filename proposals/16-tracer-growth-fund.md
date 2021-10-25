@@ -38,7 +38,7 @@ const amount = toDecimalsExpanded(pAmount, 18); // tcr has 18 decimals
 
 const getProposal16 = () => {
     
-    // Transfer 280,000 TCR to Fund Management Contract
+    // Transfer 280,000,000 TCR to Fund Management Contract
     const call1Target = tcr;
     const call1Data = web3.eth.abi.encodeFunctionCall({
         type: 'function',
@@ -49,7 +49,7 @@ const getProposal16 = () => {
         ]
     }, [fundManagement, amount]);
     
-    // Create Fund with 280,000 TCR for Growth Fund
+    // Create Fund with 280,000,000 TCR for Growth Fund
     const call2Target = fundManagement;
     const call2Data = web3.eth.abi.encodeFunctionCall({
         type: 'function',
