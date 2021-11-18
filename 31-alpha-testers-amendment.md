@@ -5,7 +5,7 @@ Vest 25k TCR over 2 years for each spreadsheet address starting on May 2, 2021 (
 Issue: https://github.com/tracer-protocol/proposals/issues/34
 
 ## Implementation Discussion
-- `startTime`: May 2, 2021
+- `startTime`: 1619942400 (May 2, 2021 - 09:00 AM UTC)
 - `vestingWeeks`: 104 (104.2 weeks in 2 years)
 - `cliffWeeks`: 30 (30.4 weeks in 7 months)
 - spreadsheet url: https://docs.google.com/spreadsheets/d/1B2tttrVPxWHjDTQ4mBW7zy2EolaokTmqBdrGKumScfA/edit#gid=0
