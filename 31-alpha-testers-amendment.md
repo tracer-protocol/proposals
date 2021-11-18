@@ -1,5 +1,5 @@
 # 31 - Alpha Testers Amendment
-Stake 25k TCR for each spreadsheet address.
+Vest 25k TCR over 2 years for each spreadsheet address starting on May 2, 2021 (7 month cliff).
 
 ## Issue Link
 Issue: https://github.com/tracer-protocol/proposals/issues/34
