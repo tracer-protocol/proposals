@@ -60,6 +60,8 @@ const amount = toDecimalsExpanded(pAmount, 18); // tcr has 18 decimals
 const snapshotEndTime = new Date(2021, 8, 10, 13, 30); // september's monthIndex = 8
 const startTime = toUnixEpoch(snapshotEndTime);
 
+// MAKE CALL FROM GROWTH FUND (NOT DAO)
+
 const call1Target = tcr;
 const call1Data = web3.eth.abi.encodeFunctionCall({
     type: 'function',
