@@ -35,8 +35,8 @@ function implement() {
         type: 'function',
         name: 'transfer',
         inputs: [
-            { type: 'address', name: 'recipient' }, // runtimeVerfication
-            { type: 'uint256', name: 'amount' }, // amount
+            { type: 'address', name: 'recipient' },
+            { type: 'uint256', name: 'amount' },
         ]
     }, [multisig, toDecimalsExpanded(amount, 6)]); // usdc has 6 decimals
 
