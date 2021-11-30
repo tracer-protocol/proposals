@@ -44,7 +44,7 @@ function implement() {
     const rsa = "0xe9d18dbfd105155eb367fcfef87eaaafd15ea4b2";
     const david = "0x9f8D8096489d7d0e1A1051ABa87D34024447b7e3";
 
-    // STEP 1: Transfer TCR to Vesting Contract (25k * address count)
+    // STEP 1: Transfer 3.5 million TCR to Vesting Contract
     const call1Target = tcr;
     const call1Data = web3.eth.abi.encodeFunctionCall({
         type: 'function',
@@ -55,7 +55,7 @@ function implement() {
         ]
     }, [vesting, toDecimalsExpanded(amount, 18)]); // tcr has 18 decimals
 
-    // STEP 2: Create Vesting Schedule for each address
+    // STEP 2: Create Vesting Schedule for each address (rsa & david)
     const call2Target = vesting;
     const call2Data = web3.eth.abi.encodeFunctionCall({
         type: 'function',
